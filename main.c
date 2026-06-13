@@ -281,14 +281,26 @@ int main(int argc, char **argv) {
   }
 
   if (strcmp(argv[1], "scan") == 0) {
+    if (argc != 3) {
+      show_help();
+      return ERR_CMD;
+    }
     return scan_mbn(argv[2]);
   }
 
   if (strcmp(argv[1], "elf32") == 0) {
+    if (argc != 4) {
+      show_help();
+      return ERR_CMD;
+    }
     return to_elf32(argv[2], argv[3]);
   }
 
   if (strcmp(argv[1], "elf64") == 0) {
+    if (argc != 4) {
+      show_help();
+      return ERR_CMD;
+    }
     return to_elf64(argv[2], argv[3]);
   }
 
